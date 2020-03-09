@@ -24,6 +24,8 @@ El resultado no es inmediato, siguiendo las instrucciones de Soarer conseguí, d
 
 Previamente a todo esto, desmonté el teclado, pues la suciedad acumulada en 35 años era considerable. Durante varios días estuve limpiando la placa, las cubiertas de acero, los soportes de las teclas y las teclas. Lo que más trabajo me dió fueron los soportes de las teclas ya que la cubierta de espuma que cubría  las teclas, entre estas y la placa de acero superior, estaba desintegrada y pegada como con cola a los soportes de las teclas.
 
-Lo que no fue fácil fue el envío de comandos del PC al teclado. Algunos comandos si los recibía sin problema, por ejemplo el comando RESET o SOFT_RESET, pero el resto de comandos como poner los Break Codes o los Repit Codes, parecía que los aceptaba y sin embarno no los ejecutaba. El problema estaba en que el teclado funciona siempre como maestro, manejando el reloj CLK, tanto en la lectura de códigos de escaneo como cuando se le envían datos de comandos.
+Lo que no fue fácil fue el envío de comandos del PC al teclado. Algunos comandos si los recibía sin problema, por ejemplo el comando RESET o SOFT_RESET, pero el resto de comandos como poner los Break Codes o los Repit Codes, parecía que los aceptaba y sin embarno no los ejecutaba. El problema estaba en que el teclado funciona siempre como maestro, manejando el reloj CLK, tanto en la lectura de códigos de escaneo como cuando se le envían datos de comandos, y yo intentaba enviarle los comandos controlando el reloj desde el PC. Una vez descubierto esto ya me puse a configurar un programa para que el IBM 4704 tenga un uso más funcional posible como teclado en español.
+
+
 
 
