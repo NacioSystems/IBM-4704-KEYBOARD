@@ -22,6 +22,9 @@ En 2020 decidí ponerlo en marcha y encontré mucha información en Internet. En
 
 ![Kishsaver](https://github.com/NacioSystems/IBM-4704-KEYBOARD/blob/master/Imagenes/Teclado%20Completo.jpg "Pruebas conexión")
 
+El teclado es una matriz de 62 teclas, 8x8, en la que uno de los puntos de la matriz, el 63, es un código fijo que identifica el teclado, en mi caso 0xA3h. Para la lectura de la matriz se utiliza un controlador Intel 8048, en mi caso es una variante con un código distinto, que se encarga de alimentar sucesivamenta cada una de las 8 filas, seleccionar cada una de las 8 columnas, mientras lee el valor 1 / 0 del pin 1, denominado TO. El 8048 dispone de un microprocesador Intel de 8 bits, memoria RAM de 64 bytes y una ROM de 1kB. La seleccion de las columnas es a través de un chip específico con entrada decimal (0-7) y una salida por cada columna. Las entradas y salidas de Data, Clock y Buzzer se realizan a traves de puertas adicionales, puestas en Pull-Up.
+
+![Intel8048](https://github.com/NacioSystems/IBM-4704-KEYBOARD/blob/master/Imagenes/8048_replace_kishsaver2.png "Intel 8048")
 
 [1]:https://deskthority.net/viewtopic.php?f=7&t=2510&start=
 
@@ -39,7 +42,7 @@ Más tarde encontré, en el Github de *[iflowfor8hours][3]*, como hacer un conve
 
 [3]:https://github.com/iflowfor8hours/6112884-pro-micro-controller
 
-![ProMicro](
+![ProMicro](https://github.com/NacioSystems/IBM-4704-KEYBOARD/blob/master/Imagenes/ProMicro.jpg "Pro Micro")
 
 El resultado no es inmediato, siguiendo las instrucciones de Soarer conseguí, despues de pelearme un poco con la información, salir del modo comando en el que se inicia el teclado y leer las teclas. Esto me permitió confirmar que el procesador IBM 8048 y el resto de la placa funcionan perfectamente despues de más de 35 años sin conectar.
 
@@ -53,7 +56,7 @@ Lo que no fue fácil fue el envío de comandos del PC al teclado. Algunos comand
 
 ### Agradecimientos:
 
-Muy agradecido tanto a _*Soarer*_, como _*iflowfor8hours*_, así como a _*http://kishy.ca*_, quienes me permitieron acceder a información esencial para conocer el funcionamiento de este teclado.
+Muy agradecido tanto a *[Soarer][1]*, como *[iflowfor8hours][3]*, así como a _*http://kishy.ca*_, quienes me permitieron acceder a información esencial para conocer el funcionamiento de este teclado.
 
 ### Licencia:
 Todos estos productos están liberados mediante Creative Commons Attribution-ShareAlike 4.0 International License.
