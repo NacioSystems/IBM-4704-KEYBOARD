@@ -59,6 +59,8 @@ Lo que no fue fácil fue el envío de comandos del PC al teclado. Algunos comand
 
 El programa está realizado con el IDE Arduino, para su programación directa a través de cable USB. En la carpeta software se puede ver el programa comentado. El pineado está explicado en los comentarios, sólo es necesario montar el cableado para la comunicación con el IMB 4704 y el puerto USB. La conexión con el PC abre un puerto HID Keyboard standar, para el envío de la información tecleada, pero por otra parte abre simultáneamente un puerto COM, en el que permite visualizar los códigos de escaneo del telcado, los códigos de conversión de teclas y los comandos enviados.
 
+![IBM4704](https://github.com/NacioSystems/IBM-4704-KEYBOARD/blob/master/Imagenes/IBM4704.jpg "IBM 4704 Kishsaver")
+
 ### Construcción:
 
 La construcción es en base es la plataforma **_Sparkfun Pro Micro_**, a la que se le han soldado conectores *duppond* hembra en los pines Vcc, GND, A3 y A4, los primeros para la alimentación de la placa con el procesador Intel 8048, los segundos para las fuciones de comunicación de IBM, CLK y DATA. 
