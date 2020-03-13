@@ -33,11 +33,13 @@ El teclado que yo tengo es un modelo de teclado español, con letra Ñ y otras t
 
 Por otra parte es posible conseguir hardware adicional para reemplazar la placa controladora original por una más moderna, con puerto USB, pero los precios no son precisamente económicos. Hablamos de unos 41$ más gastos de envío. 
 
-Por ese motivo me propuse buscar una alternativa utilizando la información que *[Soarer][1]* ha hecho pública. La primera alternativa fue conectar un adaptador entre el bus del teclado y PC, con salida USB, basada en *Arduino Nano*. En segundo lugar en reemplazar el controlador Intel 8048, instalando un zócalo de 40 pines, al igual que hizo *[Soarer][1]*, y reprogramando todo desde cero. Esta segunda alternativa era la que ofrecía más probabilidades desde mi punto de vista, ya que tenía el presentimiento de que el Intel 8048 no funcionaba.
+Por ese motivo me propuse buscar alternativas utilizando la información que *[Soarer][1]* ha hecho pública. La primera alternativa fue conectar un adaptador entre el bus del teclado y PC, con salida USB, basada en *Arduino Nano*. En segundo lugar en reemplazar el controlador Intel 8048, instalando un zócalo de 40 pines, al igual que hizo *[Soarer][1]*, y reprogramando todo desde cero. Esta segunda alternativa era la que ofrecía más probabilidades desde mi punto de vista, ya que tenía el presentimiento de que el Intel 8048 no funcionaba.
 
-Más tarde encontré, en el Github de *[iflowfor8hours][3]*, se contempla cambiar la placa Tennsy, la que utiliza Soarer por un Pro Micro. Ambas placas vienen a ser un Arduino Leonardo reformado, con un microcontrolador ATmega32U4, que lleva incorporado un puerto USB nativo.
+Más tarde encontré, en el Github de *[iflowfor8hours][3]*, como hacer un conversor USB utilizando una placa Pro Micor, una placa similar a la placa Tennsy, la que utiliza Soarer, aunque con una configuración más limitada. Ambas placas vienen a ser un Arduino Leonardo reformado, en miniatura, con un microcontrolador _*ATmega32U4*_. Este controlador lleva incorporado un puerto USB nativo, lo que facilita enormemente la simulación de dispositivos *HID* en el ordenador.
 
 [3]:https://github.com/iflowfor8hours/6112884-pro-micro-controller
+
+![ProMicro](
 
 El resultado no es inmediato, siguiendo las instrucciones de Soarer conseguí, despues de pelearme un poco con la información, salir del modo comando en el que se inicia el teclado y leer las teclas. Esto me permitió confirmar que el procesador IBM 8048 y el resto de la placa funcionan perfectamente despues de más de 35 años sin conectar.
 
