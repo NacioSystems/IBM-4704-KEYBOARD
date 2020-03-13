@@ -24,6 +24,8 @@ En 2020 decidí ponerlo en marcha y encontré mucha información en Internet. En
 
 El teclado es una matriz de 62 teclas, 8x8, en la que uno de los puntos de la matriz, el 63, es un código fijo que identifica el teclado, en mi caso 0xA3h. Para la lectura de la matriz se utiliza un controlador Intel 8048, aunque el teclado que yo tengo está marcado con un código diferente, básicamente es un 8048, que se encarga de alimentar sucesivamenta cada una de las 8 filas, seleccionar cada una de las 8 columnas, mientras lee el valor 1 / 0 del pin 1, denominado TO. El 8048 dispone de un microprocesador Intel de 8 bits, memoria RAM de 64 bytes y una ROM de 1kB, así como 3 puertos configurables de entrada salida tambien de 8 bits. La seleccion de las columnas es a través de un chip específico con entrada decimal (tres bits 0-7) y una salida por cada columna (8 bits). Las entradas y salidas de Data, Clock y Buzzer se realizan a traves de puertas adicionales en el controlador, puestas en Pull-Up.
 
+En concreto, para el modelo de 62 teclas, que los expertos llaman Kishsaver, realmente solo utiliza un puerto de 8 bits para el Strobe, la selección de filas, y mitad de otro puerto de 8 bits (bits 0, 1 y 2) para la selección de columnas. Un cuarto bit lo utiliza para la carga de los condensadores y un bit adicional para la lectura del Strobe de la tecla (que no existe) del código de teclado (ver imagen 8048).
+
 ![Intel8048](https://github.com/NacioSystems/IBM-4704-KEYBOARD/blob/master/Imagenes/8048_replace_kishsaver2.png "Intel 8048")
 
 
