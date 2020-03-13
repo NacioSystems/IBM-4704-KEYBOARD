@@ -27,19 +27,21 @@ En 2020 decidí ponerlo en marcha y encontré mucha información en Internet. En
 
 [2]:https://github.com/tmk/tmk_keyboard/tree/master/converter/ibm4704_usb
 
-El teclado que yo tengo es un modelo de teclado español, con letra Ñ y otras cambiadas de sitio respecto del teclado , al que además le encontré dos "Buckling springs" rotos, con lo que no resutla fácil la apicación de un software estandar tipo Soarer, para aprovechar todas las capacidades de este teclado. 
+El teclado que yo tengo es un modelo de teclado español, con letra Ñ y otras teclas cambiadas de sitio respecto del teclado estándar, al que además le encontré dos *Buckling springs*, los martillos de IBM rotos. Con estas características no resutla fácil la aplicación directa de un software estandar tipo *[Soarer][1]*, para aprovechar todas las capacidades de este teclado. 
 
-Por otra parte se vende hasrware adicional para reemplazar la placa controladora por una más moderna, con puerto USB, pero los precios no son precisamente económicos. Hablamos de unos 41$ más gastos de envío. 
+![BucklingSpring](https://github.com/NacioSystems/IBM-4704-KEYBOARD/blob/master/Imagenes/155px-Bucklingspring-animation-300ms.gif "Sistema IBM Buckling Spring")
 
-Por ese motivo me propuse buscar una alternativa utilizando la información que Soarer ha hecho pública, en primer lugar conectando un adaptador entre el bus del teclado y PC, con salida USB, y en segundo lugar, pensando en reemplazar el procesador 8048 de IBM siguiendo las explicaciones de Soarer, ya que daba por supuesto que estaba muerto.
+Por otra parte es posible conseguir hardware adicional para reemplazar la placa controladora original por una más moderna, con puerto USB, pero los precios no son precisamente económicos. Hablamos de unos 41$ más gastos de envío. 
 
-En el Github de "iflowfor8hours", se contempla cambiar la placa Tennsy, la que utiliza Soarer por un Pro Micro. Ambas placas vienen a ser un Arduino Leonardo reformado, con un microcontrolador ATmega32U4, que lleva incorporado un puerto USB nativo.
+Por ese motivo me propuse buscar una alternativa utilizando la información que *[Soarer][1]* ha hecho pública. La primera alternativa fue conectar un adaptador entre el bus del teclado y PC, con salida USB, basada en *Arduino Nano*. En segundo lugar en reemplazar el controlador Intel 8048, instalando un zócalo de 40 pines, al igual que hizo *[Soarer][1]*, y reprogramando todo desde cero. Esta segunda alternativa era la que ofrecía más probabilidades desde mi punto de vista, ya que tenía el presentimiento de que el Intel 8048 no funcionaba.
 
-![Pro Micro](https://github.com/iflowfor8hours/6112884-pro-micro-controller "Pro micro)
+Más tarde encontré, en el Github de *[iflowfor8hours][3]*, se contempla cambiar la placa Tennsy, la que utiliza Soarer por un Pro Micro. Ambas placas vienen a ser un Arduino Leonardo reformado, con un microcontrolador ATmega32U4, que lleva incorporado un puerto USB nativo.
+
+[3]:https://github.com/iflowfor8hours/6112884-pro-micro-controller
 
 El resultado no es inmediato, siguiendo las instrucciones de Soarer conseguí, despues de pelearme un poco con la información, salir del modo comando en el que se inicia el teclado y leer las teclas. Esto me permitió confirmar que el procesador IBM 8048 y el resto de la placa funcionan perfectamente despues de más de 35 años sin conectar.
 
-Previamente a todo esto, desmonté el teclado, pues la suciedad acumulada en 35 años era considerable. Durante varios días estuve limpiando la placa, las cubiertas de acero, los soportes de las teclas y las teclas. Lo que más trabajo me dió fueron los soportes de las teclas ya que la cubierta de espuma que cubría  las teclas, entre estas y la placa de acero superior, estaba desintegrada y pegada como con cola a los soportes de las teclas.
+Previamente a todo esto, desmonté el teclado, pues la suciedad acumulada en 35 años era considerable. Durante varios días estuve limpiando la placa, las cubiertas de acero, los soportes de las teclas y las teclas. Lo que más trabajo me dió fueron los soportes de las teclas ya que la cubierta de espuma que cubría las teclas, entre estas y la placa de acero superior, estaba desintegrada y pegada como con cola a los soportes de las teclas.
 
 Lo que no fue fácil fue el envío de comandos del PC al teclado. Algunos comandos si los recibía sin problema, por ejemplo el comando RESET o SOFT_RESET, pero el resto de comandos como poner los Break Codes o los Repit Codes, parecía que los aceptaba y sin embarno no los ejecutaba. El problema estaba en que el teclado funciona siempre como maestro, manejando el reloj CLK, tanto en la lectura de códigos de escaneo como cuando se le envían datos de comandos, y yo intentaba enviarle los comandos controlando el reloj desde el PC. Una vez descubierto esto ya me puse a configurar un programa para que el IBM 4704 tenga un uso más funcional posible como teclado en español.
 
