@@ -1,4 +1,4 @@
-#CONVERSOR IBM 4704 A USB:
+# CONVERSOR IBM 4704 A USB:
 
 ## de NacioSystems:
 
@@ -9,7 +9,7 @@ Con este proyecto se explica la construcción de un interfaz para el teclado esp
 
 ---
 
-###Introducción:
+### Introducción:
 
 
 Paseado por el rastro, en 1985, encontré un puesto que tenia varios teclados y terminales en venta, tenía la pinta de una sucursal de banco que había cambiado de sistema.
