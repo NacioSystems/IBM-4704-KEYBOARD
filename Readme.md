@@ -22,7 +22,7 @@ En 2020 decidí ponerlo en marcha y encontré mucha información en Internet. En
 
 ![Kishsaver](https://github.com/NacioSystems/IBM-4704-KEYBOARD/blob/master/Imagenes/Teclado%20Completo.jpg "Pruebas conexión")
 
-El teclado es una matriz de 62 teclas, 8x8, en la que uno de los puntos de la matriz, el 63, es un código fijo que identifica el teclado, en mi caso 0xA3h. Para la lectura de la matriz se utiliza un controlador Intel 8048, en mi caso es una variante con un código distinto, que se encarga de alimentar sucesivamenta cada una de las 8 filas, seleccionar cada una de las 8 columnas, mientras lee el valor 1 / 0 del pin 1, denominado TO. El 8048 dispone de un microprocesador Intel de 8 bits, memoria RAM de 64 bytes y una ROM de 1kB. La seleccion de las columnas es a través de un chip específico con entrada decimal (0-7) y una salida por cada columna. Las entradas y salidas de Data, Clock y Buzzer se realizan a traves de puertas adicionales, puestas en Pull-Up.
+El teclado es una matriz de 62 teclas, 8x8, en la que uno de los puntos de la matriz, el 63, es un código fijo que identifica el teclado, en mi caso 0xA3h. Para la lectura de la matriz se utiliza un controlador Intel 8048, aunque el teclado que yo tengo está marcado con un código diferente, básicamente es un 8048, que se encarga de alimentar sucesivamenta cada una de las 8 filas, seleccionar cada una de las 8 columnas, mientras lee el valor 1 / 0 del pin 1, denominado TO. El 8048 dispone de un microprocesador Intel de 8 bits, memoria RAM de 64 bytes y una ROM de 1kB, así como 3 puertos configurables de entrada salida tambien de 8 bits. La seleccion de las columnas es a través de un chip específico con entrada decimal (tres bits 0-7) y una salida por cada columna (8 bits). Las entradas y salidas de Data, Clock y Buzzer se realizan a traves de puertas adicionales en el controlador, puestas en Pull-Up.
 
 ![Intel8048](https://github.com/NacioSystems/IBM-4704-KEYBOARD/blob/master/Imagenes/8048_replace_kishsaver2.png "Intel 8048")
 
@@ -50,17 +50,57 @@ Previamente a todo esto, desmonté el teclado, pues la suciedad acumulada en 35 
 
 Lo que no fue fácil fue el envío de comandos del PC al teclado. Algunos comandos si los recibía sin problema, por ejemplo el comando RESET o SOFT_RESET, pero el resto de comandos como poner los Break Codes o los Repit Codes, parecía que los aceptaba y sin embarno no los ejecutaba. El problema estaba en que el teclado funciona siempre como maestro, manejando el reloj CLK, tanto en la lectura de códigos de escaneo como cuando se le envían datos de comandos, y yo intentaba enviarle los comandos controlando el reloj desde el PC. Una vez descubierto esto ya me puse a configurar un programa para que el IBM 4704 tenga un uso más funcional posible como teclado en español.
 
+### Materiales:
+* Teclado IBM 4704 62 teclas, Kishsaver, modelo F
+* Sparkfun Pro Micro
+
+
+### Programa:
+
+El programa está realizado con el IDE Arduino, para su programación directa a través de cable USB. En la carpeta software se puede ver el programa comentado. El pineado está explicado en los comentarios, sólo es necesario montar el cableado para la comunicación con el IMB 4704 y el puerto USB. La conexión con el PC abre un puerto HID Keyboard standar, para el envío de la información tecleada, pero por otra parte abre simultáneamente un puerto COM, en el que permite visualizar los códigos de escaneo del telcado, los códigos de conversión de teclas y los comandos enviados.
+
+### Construcción:
+
+La construcción es en base es la plataforma **_Sparkfun Pro Micro_**, a la que se le han soldado conectores *duppond* hembra en los pines Vcc, GND, A3 y A4, los primeros para la alimentación de la placa con el procesador Intel 8048, los segundos para las fuciones de comunicación de IBM, CLK y DATA. 
+
+Por otra parte se diseñó una caja funcional, similar a la original de IBM, impresa en PLA, con una impresora 3D.
+
+
+### Piezas impresas:
+
+En la carpeta de piezas impresas, están los modelos Stl de la caja para el Kishsaver, imitando la caja original, modelo sacado a partir de la fotos ofrecidas por *[Kishy.ca][8]*.
+
+
+### Referencias:
+
+* *[IBM 4700 Kishy.ca][5]*
+
+* *[IBM 4704 to USB keyboard converter][6]*
+
+* *[XT / AT / PS2 / Terminal to USB Converter with NKRO] [7]
+
+* *[Sparkfun Pro Micro][4]*
+
+
+
 
 ### Autor:
 **Ignacio Otero**
 
 ### Agradecimientos:
 
-Muy agradecido tanto a *[Soarer][1]*, como *[iflowfor8hours][3]*, así como a _*http://kishy.ca*_, quienes me permitieron acceder a información esencial para conocer el funcionamiento de este teclado.
+Muy agradecido tanto a *[Soarer][1]*, como *[iflowfor8hours][3]*, así como a *[http://kishy.ca][8], quienes me permitieron acceder a información esencial para conocer el funcionamiento de este teclado.
 
 ### Licencia:
 Todos estos productos están liberados mediante Creative Commons Attribution-ShareAlike 4.0 International License.
 
 
+[4]:https://www.sparkfun.com/products/12640
 
+[5]:http://kishy.ca/?p=648
 
+[6]:https://github.com/tmk/tmk_keyboard/tree/master/converter/ibm4704_usb
+
+[7]:https://geekhack.org/index.php?topic=17458.0
+
+[8]:http://kishy.ca/?p=894
