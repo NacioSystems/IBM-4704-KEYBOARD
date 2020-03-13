@@ -18,14 +18,14 @@ Se trataba de un teclado de terminal IBM 4704, que tenía la apariencia de estar
 
 Me gustó mucho su tacto y su sonido y decidí comprarlo. Después supe que estaba considerado uno de los mejores teclados, el IMB Modelo F, que por ser capacitivo superaba en prestaciones al más conocido Model M, tambien de IBM.
 
-En 2020 decidí ponerlo en marcha y encontré mucha información en Internet. En concreto el proyecto de Soarer, quien destripó el hardware y el software del microprocesador Intel 8048, lo que a su vez permitió el desarrollo de otros proyectos de reconversión de este teclado en modelo USB, como es el caso del proyecto TMK.
+En 2020 decidí ponerlo en marcha y encontré mucha información en Internet. En concreto el proyecto de *[Soarer][1]*, quien destripó el hardware y el software del microprocesador Intel 8048, lo que a su vez permitió el desarrollo de otros proyectos de reconversión de este teclado en modelo USB, como es el caso del proyecto *[TMK][2]*.
 
 ![Kishsaver](https://github.com/NacioSystems/IBM-4704-KEYBOARD/blob/master/Imagenes/Teclado%20Completo.jpg "Pruebas conexión")
 
 
-https://deskthority.net/viewtopic.php?f=7&t=2510&start=
+[1]:https://deskthority.net/viewtopic.php?f=7&t=2510&start=
 
-https://github.com/tmk/tmk_keyboard/tree/master/converter/ibm4704_usb
+[2]:https://github.com/tmk/tmk_keyboard/tree/master/converter/ibm4704_usb
 
 El teclado que yo tengo es un modelo de teclado español, con letra Ñ y otras cambiadas de sitio respecto del teclado , al que además le encontré dos "Buckling springs" rotos, con lo que no resutla fácil la apicación de un software estandar tipo Soarer, para aprovechar todas las capacidades de este teclado. 
 
