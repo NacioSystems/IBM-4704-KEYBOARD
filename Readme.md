@@ -26,9 +26,6 @@ El teclado es una matriz de 62 teclas, 8x8, en la que uno de los puntos de la ma
 
 ![Intel8048](https://github.com/NacioSystems/IBM-4704-KEYBOARD/blob/master/Imagenes/8048_replace_kishsaver2.png "Intel 8048")
 
-[1]:https://deskthority.net/viewtopic.php?f=7&t=2510&start=
-
-[2]:https://github.com/tmk/tmk_keyboard/tree/master/converter/ibm4704_usb
 
 El teclado que yo tengo es un modelo de teclado español, con letra Ñ y otras teclas cambiadas de sitio respecto del teclado estándar, al que además le encontré dos *Buckling springs*, los martillos de IBM rotos. Con estas características no resutla fácil la aplicación directa de un software estandar tipo *[Soarer][1]*, para aprovechar todas las capacidades de este teclado. 
 
@@ -39,8 +36,6 @@ Por otra parte es posible conseguir hardware adicional para reemplazar la placa 
 Por ese motivo me propuse buscar alternativas utilizando la información que *[Soarer][1]* ha hecho pública. La primera alternativa fue conectar un adaptador entre el bus del teclado y PC, con salida USB, basada en *Arduino Nano*. En segundo lugar en reemplazar el controlador Intel 8048, instalando un zócalo de 40 pines, al igual que hizo *[Soarer][1]*, y reprogramando todo desde cero. Esta segunda alternativa era la que ofrecía más probabilidades desde mi punto de vista, ya que tenía el presentimiento de que el Intel 8048 no funcionaba.
 
 Más tarde encontré, en el Github de *[iflowfor8hours][3]*, como hacer un conversor USB utilizando una placa Pro Micor, una placa similar a la placa Tennsy, la que utiliza Soarer, aunque con una configuración más limitada. Ambas placas vienen a ser un Arduino Leonardo reformado, en miniatura, con un microcontrolador _*ATmega32U4*_. Este controlador lleva incorporado un puerto USB nativo, lo que facilita enormemente la simulación de dispositivos *HID* en el ordenador.
-
-[3]:https://github.com/iflowfor8hours/6112884-pro-micro-controller
 
 ![ProMicro](https://github.com/NacioSystems/IBM-4704-KEYBOARD/blob/master/Imagenes/ProMicro.jpg "Pro Micro")
 
@@ -87,7 +82,7 @@ En la carpeta de piezas impresas, están los modelos Stl de la caja para el Kish
 
 * *[IBM 4704 to USB keyboard converter][6]*
 
-* *[XT / AT / PS2 / Terminal to USB Converter with NKRO] [7]
+* *[XT / AT / PS2 / Terminal to USB Converter with NKRO][7]*
 
 * *[Sparkfun Pro Micro][4]*
 
@@ -99,11 +94,16 @@ En la carpeta de piezas impresas, están los modelos Stl de la caja para el Kish
 
 ### Agradecimientos:
 
-Muy agradecido tanto a *[Soarer][1]*, como *[iflowfor8hours][3]*, así como a *[http://kishy.ca][8], quienes me permitieron acceder a información esencial para conocer el funcionamiento de este teclado.
+Muy agradecido tanto a *[Soarer][1]*, como *[iflowfor8hours][3]*, así como a *[http://kishy.ca][8]*, quienes me permitieron acceder a información esencial para conocer el funcionamiento de este teclado.
 
 ### Licencia:
 Todos estos productos están liberados mediante Creative Commons Attribution-ShareAlike 4.0 International License.
 
+[1]:https://deskthority.net/viewtopic.php?f=7&t=2510&start=
+
+[2]:https://github.com/tmk/tmk_keyboard/tree/master/converter/ibm4704_usb
+
+[3]:https://github.com/iflowfor8hours/6112884-pro-micro-controller
 
 [4]:https://www.sparkfun.com/products/12640
 
