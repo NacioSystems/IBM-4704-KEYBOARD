@@ -65,7 +65,15 @@ El programa está realizado con el IDE Arduino, para su programación directa a 
 
 La construcción es en base es la plataforma **_Sparkfun Pro Micro_**, a la que se le han soldado conectores *duppond* hembra en los pines Vcc, GND, A3 y A4, los primeros para la alimentación de la placa con el procesador Intel 8048, los segundos para las fuciones de comunicación de IBM, CLK y DATA. 
 
+![Martillos](https://github.com/NacioSystems/IBM-4704-KEYBOARD/blob/master/Imagenes/interior%204.jpg "Interior, martillos")
+
+![Inferior](https://github.com/NacioSystems/IBM-4704-KEYBOARD/blob/master/Imagenes/Placa%20Base%20DOWN.jpg "Vista placa inferior")
+
+![Superior](https://github.com/NacioSystems/IBM-4704-KEYBOARD/blob/master/Imagenes/Placa%20Base%20UP.jpg "Vista placa superior")
+
 Por otra parte se diseñó una caja funcional, similar a la original de IBM, impresa en PLA, con una impresora 3D.
+
+![Caja3D](https://github.com/NacioSystems/IBM-4704-KEYBOARD/blob/master/Imagenes/Caja3D.JPG "Modelo caja 3D")
 
 
 ### Piezas impresas:
