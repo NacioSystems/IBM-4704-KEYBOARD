@@ -26,10 +26,9 @@ Este teclado es una matriz de 62 teclas, 8x8, en la que uno de los puntos de la 
 
 En concreto, para el modelo de 62 teclas, que los expertos llaman *Kishsaver*, realmente solo utiliza un puerto de 8 bits para el Strobe, la selección de filas, y mitad de otro puerto de 8 bits (bits 0, 1 y 2) para la selección de columnas. Un cuarto bit lo utiliza para la carga de los condensadores a través del IBM 9314 y un bit adicional para la lectura del Strobe de la tecla (que no existe) del código de teclado (ver imagen 8048).
 
-La construcción es impresionante. Lleva dos planchas metálicas en las que encajan, en modo sandwich la placa de circuito impreso PCB y las teclas. La placa PCB está totalmente cubierta por una capa aislante por las dos caras, el soporte de la PCB hace de dieléctrico. Los contactos no son realmente contactos, son superficies que hacen de condensadores. El conjunto es sólido, la que yo tengo pesa 1.6Kg, pero he visto que la original con la caja de fundición pesa 2.8Kg. !Impresionante!
-
 ![Intel8048](https://github.com/NacioSystems/IBM-4704-KEYBOARD/blob/master/Imagenes/8048_replace_kishsaver2.png "Intel 8048")
 
+La construcción es impresionante. Lleva dos planchas metálicas en las que encajan, en modo sandwich la placa de circuito impreso PCB y las teclas. La placa PCB está totalmente cubierta por una capa aislante por las dos caras, el soporte de la PCB hace de dieléctrico. Los contactos no son realmente contactos, son superficies que hacen de condensadores. El conjunto es sólido, la que yo tengo pesa 1.6Kg, pero he visto que la original con la caja de fundición pesa 2.8Kg. !Impresionante!
 
 El teclado que yo tengo es un modelo de teclado español, con letra Ñ y otras teclas cambiadas de sitio respecto del teclado estándar, por lo menos la versión americana que documentó Soarer. A este teclado le encontré dos *Buckling springs*, los martillos de IBM rotos. Con estas características no resutla fácil la aplicación directa de un software estandar tipo *[Soarer][1]*, para aprovechar todas las capacidades de este teclado. 
 
