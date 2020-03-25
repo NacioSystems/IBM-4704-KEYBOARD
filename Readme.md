@@ -87,6 +87,8 @@ Está tamibién el archivo FreeCad por si alguien quiere modificar dicha caja.
 
 La impresora 3D que yo tengo tiene una superficie muy limitada, 200x200mm, lo que no me permite construir de una vez las dos partes, inferior y superior. Para poder imprimirlo, corté las piezas superior e inferior en dos partes dada una, derecha e izquierda, con unas dimensiones aceptables para el tamaño de la impresora. El material que utilicé es PLA de color dorado. 
 
+Las mitades izquierda y derecha las pequé con cola y las uní con las levas inferior y superior para darle un refuerzo. La unión es con tornillos de métrica M3. Hay unas tuercas 4xM3 también embibidas en la parte superior, para sujetar con fuerza los tornillos. En la parte inferior tuve que meter un refuerzo, yo lo pegué con cola pero dejé espacio para tornillos, para hacerlo más rígido.
+
 
 ### Referencias:
 
