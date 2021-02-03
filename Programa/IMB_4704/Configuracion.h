@@ -82,6 +82,9 @@ and without it on release. That is, '`' sends 80h on press and 00h on release.
  *   Teclas de Función:
  *        Se pulsa la tecla de "menú" y el número correspondiente, F! a F10, F11 con ' y F12 con {
  *        
+ *   Reset:
+ *        Para resetear Ardunio Leonardo y teclado IBM, pulsar "menú" y suprimir PD2<-
+ *        
  *   Teclas de Cursor:
  *        La mejor opción que he considerado es utilizar las tres teclas marcadas de la fila inferior,
  *        estas son V (Prba), B (Cursr) y N (Parpa), que hacen las funciones de cursor <, \/, >
@@ -152,3 +155,12 @@ and without it on release. That is, '`' sends 80h on press and 00h on release.
 
 // ERROR O FALTA DE DATOS
 #define ERROR 0xFF // Devolveremos un error en caso de que falle la lecura
+#define T_SCAN  2500 // T start en caso máximo del teclado en modo escaneo
+#define T_START  350 // En este caso T start para lectura está entre 300 y 350us
+#define T_S_BIT  100 // Start bit, un ciclo de 60+30 =90, más 10us de regalo
+#define T_CLOCK   95 // Pulso de reloj de 60+30 =90, más 5us de regalo
+#define T_C_H     65 // El reloj está en alto 60 us, más 5us de regalo
+#define T_C_L     35 // El reloj está en bajo 30 us
+// Estos tiempos son mayores de los especificados para el teclado 4703, de las diferentes
+// fases del rejoj, 30, 60, 90, 300 o 2500 us. No importa que el intervalo sea mayor,
+// lo que importa es saber que nos hemos pasado de tiempo, y generar el error.
