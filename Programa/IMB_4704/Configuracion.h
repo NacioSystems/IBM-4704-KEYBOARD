@@ -152,6 +152,7 @@ and without it on release. That is, '`' sends 80h on press and 00h on release.
 #define OVERFLOW 0xFE
 #define OUTOFBOUND 0xFD
 #define PARITYERROR 0x7E
+#define KISHSAVER 0xA3
 
 // ERROR O FALTA DE DATOS
 #define ERROR 0xFF // Devolveremos un error en caso de que falle la lecura

@@ -66,7 +66,7 @@ char CodTeclado[0x48] = {
        'm',  ','  ,'.',  0X2F,  KEY_RIGHT_SHIFT,  KEY_RIGHT_SHIFT,   60,  KEY_LEFT_ALT,
 
     // 40    41               42              43    44    45    46    47
-       ' ',  KEY_RIGHT_GUI,   KEY_LEFT_GUI,   ' ',  ' ',  ' ',  ' ',  ' '    
+       ' ',  KEY_LEFT_GUI,   KEY_RIGHT_GUI,   ' ',  ' ',  ' ',  ' ',  ' '    
 };
 
 
@@ -100,9 +100,9 @@ inhabilitaKB();
   
 if (ValorTecla!=0xFF) {
       // Hay valor, imprimirmos el valor
-      Serial.print(" Codigo tecla:");      //
+      Serial.print(" Codigo tecla: 0x");      //
       Serial.print(ValorTecla, HEX);
-      Serial.print(" Codigo enviado: ");
+      Serial.print(" --> Codigo enviado: 0x");
       Serial.println((uint8_t) CodTeclado[ValorTecla],HEX);
       //Serial.print(" Tecla: ");
 
@@ -415,6 +415,7 @@ Keyboard accepts these commands from host.
           if(Comando&BREAKCODE) Serial.print("BREAK CODE ");
           else Serial.print("ENABLE REPEAT ");
       }
+  Serial.print("0x");
   Serial.println(Comando, HEX);
   
   // Empezamos el start bit poniendo CLK a 0 durante 300 usegudos
@@ -485,7 +486,7 @@ Keyboard accepts these commands from host.
          }
     while(digitalRead(CLK)==HIGH) {
        // Esperamos
-       if(micros()-Ttotal>T_C_H) { // Máximo 30us
+       if(micros()-Ttotal>T_C_H) { // Máximo 60us
            Error=10;
            break;
            }
@@ -630,6 +631,7 @@ Keyobard sends these bytes to host.
             if(KB_LECTURA==OVERFLOW) Serial.println("\nOverflow key event/recibe data. ");
             if(KB_LECTURA==OUTOFBOUND) Serial.println("\nOut of bound. ");
             if(KB_LECTURA==PARITYERROR) Serial.println("\nParity error. ");
+            if(KB_LECTURA==KISHSAVER) Serial.println("\nKishsaver detected.");
             if(Error>0) {Serial.print("\nError de tiempo "); Serial.println(Error);}
             
             return KB_LECTURA; 
@@ -752,10 +754,17 @@ void InicioTeclado(void) {
           // Habilitamos el teclado para leer el código del mismo
           habilitaKB();
           //Esperamos el bit de arranque
-          delayMicroseconds(300);
+          Ttotal=micros(); 
+          while(digitalRead(CLK)==HIGH) {
+          // Esperamos que baje el reloj
+               if(micros()-Ttotal>T_SCAN) { // Máximno 2500us
+                        Error=13;
+                        break;
+                        }
+               }
           
           ValorTecla=LeerTeclado();
-          Serial.print("Modelo F200 detectado: ");
+          Serial.print("Modelo F200 detectado: 0x");
           Serial.println(ValorTecla,HEX);
         
           Serial.println("\nPonemos en modo break las teclas SHIFT, CTRL y ALT");
@@ -823,12 +832,13 @@ void InformacionSerie(void) {
         Serial.println("     - IBM MODEL F -      - IBM PC");
         Serial.println("          Rest     --------  CRTL_L");
         Serial.println("          Alt      --------  ALT_L");
-        Serial.println("          /\\      --------   SHIFT_L");
+        Serial.println("          /\\       --------  SHIFT_L");
         Serial.println("          PD 1 ->| --------  TAB");
         Serial.println("          <--      --------  BACK_SP");
         Serial.println("          PD 2 |<- --------  SUPR");
         Serial.println("          PD 3 |<¬ --------  ENTER");
-        Serial.println("          MENÚ-\" \" --------  FUNCTION_E");
+        Serial.println("          MENÚ I-\" \" ------  FUNCTION_E");
+        Serial.println("          MENÚ D-\" \" ------  INICIO WINDOWS");
         Serial.println("\n Utilizar la telca MENÚ,FUNCIÓN_E, para acceder:");
         Serial.println("  - Teclas de función F1 - F12");
         Serial.println("  - Teclas de cursor: <(V), /\\(G), \\/(B), >(N)");
