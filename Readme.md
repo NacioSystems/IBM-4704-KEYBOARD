@@ -51,7 +51,9 @@ Previamente a todo esto, desmonté el teclado, pues la suciedad acumulada en 35 
 
 Una de las complicacines más difíciles fue el envío de comandos desde PC al teclado. Algunos comandos si los recibía sin problema, por ejemplo el comando RESET o SOFT_RESET, pero el resto de comandos como poner los *Break Codes* o los *Repit Codes* fué más complicado, parecía que los aceptaba y sin embarno no los ejecutaba. El problema estaba en que el teclado funciona siempre como maestro, manejando el reloj CLK, tanto en la lectura de códigos de escaneo como cuando se le envían datos de comandos, y yo intentaba enviarle los comandos controlando el reloj desde el PC. Una vez descubierto esto ya me puse a configurar un programa para que el IBM 4704 tenga un uso más funcional posible como teclado en español. Y funciona tan bien que es el teclado que utilizo:
 
-Por cierto el teclado original tiene un beeper, un zumbador que suena en cada tecla pulsada. Creerme, el sonido de los martillos al pulsar la teclas hace innecesario dicho zumbador.
+Por cierto el teclado original tiene un beeper, un zumbador en base a electroimán, que suena en cada tecla pulsada. Creerme, el sonido de los martillos al pulsar la teclas hace innecesario dicho zumbador.
+
+Una curiosidad interesante es que haciendo pruebas he descubierto que, con el teclado desarmado, sin teclas, con la placa base conectada, la simple pulsación con los dedos sobre las placas de los condensadores detecta cada una de las teclas. Es decir, los dedos pueden hacer de martillos capacitivos. Esto produce algunos errores de lectura de los Scan Codes, pero uno termina encontrando la forma de teclear sin teclas. Viendo esto voy a probar con otros tipos de materiales conductivos para ver si puedo reemplazar los dos martillos rotos.
 
 ### Materiales:
 * Teclado IBM 4704 62 teclas, Kishsaver, modelo F
